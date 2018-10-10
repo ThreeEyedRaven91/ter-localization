@@ -1,0 +1,22 @@
+{
+  "name": "ter-localization",
+  "version": "0.1.0",
+  "description": "Quick and powerful library for localization for react / react native application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ThreeEyedRaven91/ter-localization.git"
+  },
+  "keywords": [
+    "localization"
+  ],
+  "author": "ThreeEyedRaven91",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThreeEyedRaven91/ter-localization/issues"
+  },
+  "homepage": "https://github.com/ThreeEyedRaven91/ter-localization#readme"
+}
