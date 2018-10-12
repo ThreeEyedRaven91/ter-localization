@@ -1,0 +1,10 @@
+{
+  "storage_path": "data",
+  "port": 5050,
+  "host": "localhost",
+  "languages": [
+    "en",
+    "fr",
+    "th"
+  ]
+}
