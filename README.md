@@ -151,5 +151,8 @@ ter-localization scan
 |---------|---------------------------------------------------|-------------|
 | 0.1.x   | MVP: Able to load localization from file          | Done        |
 | 0.2.x   | Local API allow to gather string without manually | Done        |
-| 0.3.x   | Allow edit via Interface, default port            | Done        |
+| 0.3.x   | Allow edit via Interface                          | Done        |
 | 0.4.x   | Allow point API to separated server               | In Progress |
+| 0.5.x   | Allow to add user / password for UI               | To do       |
+| 0.6.x   | Allow to filter, show / hide, etc ...             | To do       |
+| 0.7.x   | Log and analyse the usage data (un-used word)     | To do       |
