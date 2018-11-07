@@ -1,18 +1,25 @@
 # ThreeEyedRaven's localization library
+## Motivation
 
-## Table of Contents
+One of the most painful problem that we repeatedly face when making application is localization (aka 
+internationalization, i18n, multiple language, etc ...). There's a lot of library support localization in react-js, 
+react-native, node-js, but the most painful thing was not how to implement the localization, but how to co-operate with 
+client or 3rd-party team to make the translate. Thousand of text must be gathered, versioned, translated, updated in 
+daily or even hourly basis.
+
+TER-Localization, with new approach method, provide a solution which can speed up everything, include: 
+
+* Collect the translate text from source code
+* Collect the translate text run-time (for non-predefined text, like error return from server)
+* Translate by UI, providable to customer / 3rd-party translate team  
 
 
+![UI Editor](/docs/images/01.UIEditor.png?raw=true "UI Editor")
 
 ## Installation
-
 ### Install with npm or yarn
 
 ```
-npm i -g ter-localization
-
-# or if you have yarn
-
 yarn add ter-localization
 ```
 
@@ -63,7 +70,7 @@ In side your component
 
 ```
 
-import './language/index';
+import './localization/index'; // one time import in very top class is okie. no need to import this in every file
 import {translateWrapper} from 'ter-localization';
 
 render() {
@@ -79,10 +86,20 @@ render() {
 export default translateWrapper('main')(App);
 ```
 
+Or you can use standalone code
+
+```
+import { TranslateService } from 'ter-localization';
+
+// use it
+
+TranslationService.t('group')('key');
+```
+
 Run the service
 
 ```
-node ./node_modules/ter-localization/dist/server/index.js -c ./localization/config.json
+ter-localization serve
 ```
 
 Then run your application. The new translation will be automatically added to all the translation file
