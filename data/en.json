@@ -1,5 +1,49 @@
 {
     "asdfasd": {
         "testing": "testing"
+    },
+    "error": {
+        "user_not_found": "user_not_found",
+        "announcement_not_found": "announcement_not_found",
+        "project_not_available": "project_not_available",
+        "project_already_applied": "project_already_applied",
+        "applicant_not_found": "applicant_not_found",
+        "bank_not_found": "bank_not_found",
+        "admin_user_not_found": "admin_user_not_found",
+        "operation_not_allowed": "operation_not_allowed",
+        "project_not_found": "project_not_found",
+        "project_inspector_not_found": "project_inspector_not_found",
+        "conversation_not_found": "conversation_not_found",
+        "user_not_in_conversation": "user_not_in_conversation",
+        "equipment_name_already_exist": "equipment_name_already_exist",
+        "template_not_found": "template_not_found",
+        "report_not_found": "report_not_found",
+        "user_not_in_project": "user_not_in_project",
+        "inspection_request_not_found": "inspection_request_not_found",
+        "project_inspector_report_not_found": "project_inspector_report_not_found",
+        "project_inspector_report_already_completed": "project_inspector_report_already_completed",
+        "summary_report_you_need_complete_all_reports": "summary_report_you_need_complete_all_reports",
+        "project_started": "project_started",
+        "project_cannot_start": "project_cannot_start",
+        "project_inspector_started": "project_inspector_started",
+        "building_not_found": "building_not_found",
+        "project_complete_repair_defect_item_require": "project_complete_repair_defect_item_require",
+        "project_wait_all_repair_reports_completed": "project_wait_all_repair_reports_completed",
+        "project_wait_all_inspection_reports_completed": "project_wait_all_inspection_reports_completed",
+        "project_inspector_completed": "project_inspector_completed",
+        "project_inspector_not_started_yet": "project_inspector_not_started_yet",
+        "project_already_finished": "project_already_finished",
+        "project_already_completed": "project_already_completed",
+        "project_cannot_finished_yet": "project_cannot_finished_yet",
+        "project_cannot_be_cancelled": "project_cannot_be_cancelled"
+    },
+    "notification": {
+        "admin_just_removed_you_from_a_chat_room": "admin_just_removed_you_from_a_chat_room"
+    },
+    "payment": {
+        "pending_payment_for_project_{project_name}": "pending_payment_for_project_{project_name}",
+        "bonus_money_from_user_username_{username}": "bonus_money_from_user_username_{username}",
+        "the_invitation_bonus_arrived": "the_invitation_bonus_arrived",
+        "bonus_money_from_invitation_code_of_user_{username}": "bonus_money_from_invitation_code_of_user_{username}"
     }
 }

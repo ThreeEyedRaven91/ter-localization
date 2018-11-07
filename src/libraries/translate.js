@@ -1,3 +1,6 @@
+import axios from 'axios';
+import format from 'string-template';
+
 let listeners = [];
 let data = {
   translation: {
@@ -40,14 +43,14 @@ const setLanguage = (language) => {
   trigger();
 };
 
-const t = (group) => (key) => {
+const t = (group) => (key, params = {}) => {
   if (
     getTranslate()
     && getTranslate()[getLanguage()]
     && getTranslate()[getLanguage()][group]
     && getTranslate()[getLanguage()][group][key]
   ) {
-    return getTranslate()[getLanguage()][group][key];
+    return format(getTranslate()[getLanguage()][group][key], params);
   } else {
     addWord(group, key);
     return key;
@@ -55,13 +58,7 @@ const t = (group) => (key) => {
 }
 
 const addWord = (group, key) => {
-  fetch(`http://${data.config.host}:${data.config.port}/word/add`, {
-    method: "POST",
-    body: JSON.stringify({ group, key }),
-    headers: {
-      "content-type": "application/json",
-    },
-  });
+  axios.post(`http://${data.config.host}:${data.config.port}/api/word`, { group, key });
 }
 
 const TranslateService = {

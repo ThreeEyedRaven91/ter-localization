@@ -1,13 +1,22 @@
 {
   "name": "ter-localization",
-  "version": "0.2.11",
+  "version": "0.3.14",
   "description": "Quick and powerful library for localization for react / react native application",
-  "main": "index.js",
+  "main": "dist/libraries/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-client": "react-scripts start",
+    "start-server": "node server/dist/index.js",
+    "build-client": "react-scripts build && mkdir -p dist && rm -rf dist/client && mv build dist/client",
+    "build-server": "./node_modules/.bin/babel --presets=@babel/env,@babel/react -d dist/server/ server/",
+    "build-common": "./node_modules/.bin/babel --presets=@babel/env,@babel/react -d dist/common/ common/",
+    "build-library": "./node_modules/.bin/babel --presets=@babel/env,@babel/react -d dist/libraries/ src/libraries",
+    "build-bin": "./node_modules/.bin/babel --presets=@babel/env,@babel/react -d dist/bin/ src/bin",
+    "build": "yarn build-client && yarn build-server && yarn build-common && yarn build-library && yarn build-bin",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "yarn build"
   },
   "bin": {
-    "ter-localization": "./src/bin/index.js"
+    "ter-localization": "./dist/bin/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,10 +30,33 @@
   "bugs": {
     "url": "https://github.com/ThreeEyedRaven91/ter-localization/issues"
   },
-  "homepage": "https://github.com/ThreeEyedRaven91/ter-localization#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0"
+  },
   "dependencies": {
     "argv": "^0.0.2",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
-    "express": "^4.16.3"
-  }
+    "bootstrap": "^4.1.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.0.5",
+    "reactstrap": "^6.5.0",
+    "string-template": "^1.0.0",
+    "ter-request-wrapper": "^0.2.19"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

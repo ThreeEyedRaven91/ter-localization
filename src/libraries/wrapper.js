@@ -20,6 +20,14 @@ const wrapper = (group) => (Class) => class TERLocalizationWrapper extends React
   }
 
   render() {
+    if (group === undefined) {
+      return (
+        <Class {...this.props} t={TranslateService.t} translate={TranslateService.t}>
+          {this.props.children}
+        </Class>
+      )
+    }
+
     return (
       <Class {...this.props} t={TranslateService.t(group)} translate={TranslateService.t}>
         {this.props.children}
