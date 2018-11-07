@@ -1,4 +1,7 @@
 # ThreeEyedRaven's localization library
+
+![UI Editor](/docs/images/01.UIEditor.png?raw=true "UI Editor")
+
 ## Motivation
 
 One of the most painful problem that we repeatedly face when making application is localization (aka 
@@ -12,9 +15,6 @@ TER-Localization, with new approach method, provide a solution which can speed u
 * Collect the translate text from source code
 * Collect the translate text run-time (for non-predefined text, like error return from server)
 * Translate by UI, providable to customer / 3rd-party translate team  
-
-
-![UI Editor](/docs/images/01.UIEditor.png?raw=true "UI Editor")
 
 ## Installation
 ### Install with npm or yarn
