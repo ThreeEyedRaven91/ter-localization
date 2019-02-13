@@ -2,21 +2,27 @@ import React from 'react';
 import TranslateService from './translate';
 
 const wrapper = (group) => (Class) => class TERLocalizationWrapper extends React.Component {
+  isMounted = true;
+
   constructor(props, context) {
     super(props, context);
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
+    this._ismounted = true;
     TranslateService.addListener(this.handleChange)
   }
 
   componentWillUnmount() {
+    this._ismounted = false;
     TranslateService.removeListener(this.handleChange)
   }
 
   handleChange() {
-    this.forceUpdate();
+    if (this._ismounted) {
+      this.forceUpdate();
+    }
   }
 
   render() {

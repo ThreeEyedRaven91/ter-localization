@@ -1,16 +1,15 @@
 {
   "name": "ter-localization",
-  "version": "0.3.16",
+  "version": "0.3.24",
   "description": "Quick and powerful library for localization for react / react native application",
   "main": "dist/libraries/index.js",
   "scripts": {
-    "start-client": "react-scripts start",
-    "start-server": "node server/dist/index.js",
+    "start": "yarn build && node ./dist/server/index.js",
     "build-client": "react-scripts build && mkdir -p dist && rm -rf dist/client && mv build dist/client",
-    "build-server": "./node_modules/.bin/babel --presets=@babel/env,@babel/react -d dist/server/ server/",
-    "build-common": "./node_modules/.bin/babel --presets=@babel/env,@babel/react -d dist/common/ common/",
-    "build-library": "./node_modules/.bin/babel --presets=@babel/env,@babel/react -d dist/libraries/ src/libraries",
-    "build-bin": "./node_modules/.bin/babel --presets=@babel/env,@babel/react -d dist/bin/ src/bin",
+    "build-server": "./node_modules/.bin/babel --presets=@babel/env,@babel/react --plugins=@babel/plugin-proposal-class-properties -d dist/server/ server/",
+    "build-common": "./node_modules/.bin/babel --presets=@babel/env,@babel/react --plugins=@babel/plugin-proposal-class-properties -d dist/common/ common/",
+    "build-library": "./node_modules/.bin/babel --presets=@babel/env,@babel/react --plugins=@babel/plugin-proposal-class-properties -d dist/libraries/ src/libraries",
+    "build-bin": "./node_modules/.bin/babel --presets=@babel/env,@babel/react --plugins=@babel/plugin-proposal-class-properties -d dist/bin/ src/bin",
     "build": "yarn build-client && yarn build-server && yarn build-common && yarn build-library && yarn build-bin",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "yarn build"
@@ -33,6 +32,7 @@
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",

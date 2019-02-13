@@ -18,7 +18,7 @@ const addListener = (l) => {
 };
 
 const removeListener = (l) => {
-  listeners = listeners.filter(_l => _l === l);
+  listeners = listeners.filter(_l => _l !== l);
 };
 
 const trigger = () => {
