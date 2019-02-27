@@ -7,8 +7,13 @@ const write = (config, languages) => {
     fs.mkdirSync(`${process.cwd()}/${path}`);
   }
 
-  languagesCode.map((code) => {
+  Object.keys(languagesCode).map((code) => {
     const filePath = `${process.cwd()}/${path}/${code}.json`;
+    if (!fs.existsSync(filePath)) {
+      fs.writeFile(filePath, '',(err, data) => {
+        console.log('created')
+      }); 
+    }
 
     const groups = languages[code];
     const orderedGroups = Object.keys(groups).sort().reduce((result, current) => {
@@ -21,7 +26,6 @@ const write = (config, languages) => {
       result[current] = orderedWords;
       return result;
     }, {});
-
     fs.writeFileSync(filePath, JSON.stringify(orderedGroups, null, 2));
   });
 };
@@ -31,7 +35,7 @@ const read = (config) => {
   const languagesCode = config.languages;
   const result = {};
 
-  languagesCode.map((code) => {
+  Object.keys(languagesCode).map((code) => {
     const filePath = `${process.cwd()}/${path}/${code}.json`;
     if (fs.existsSync(filePath)) {
       result[code] = JSON.parse(fs.readFileSync(filePath));
@@ -41,6 +45,8 @@ const read = (config) => {
   });
   return result;
 };
+
+
 
 const IOHelper = {
   write,
