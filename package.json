@@ -39,6 +39,7 @@
     "@babel/register": "^7.0.0"
   },
   "dependencies": {
+    "apisauce": "^1.0.2",
     "argv": "^0.0.2",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
@@ -49,7 +50,10 @@
     "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
+    "react-spinners": "^0.5.3",
     "reactstrap": "^6.5.0",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
     "string-template": "^1.0.0",
     "ter-request-wrapper": "^0.2.19"
   },

@@ -6,6 +6,7 @@ const router = express.Router();
 /* Add new word. */
 router.post('/', (req, res) => {
   const { group, key } = req.body;
+  var socketio = req.app.get('socketio');
 
   const languages = Helper.io.read(Helper.config);
   Object.keys(languages).map((code) => {
@@ -18,6 +19,7 @@ router.post('/', (req, res) => {
   });
 
   Helper.io.write(Helper.config, languages);
+  socketio.sockets.emit('change word', key)
 
   res.send({
     error: 0,
