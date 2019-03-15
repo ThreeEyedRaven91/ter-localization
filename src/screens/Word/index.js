@@ -3,35 +3,22 @@ import {
   Container,
   Row,
   Col,
-  Table,
 } from 'reactstrap';
 import { ScaleLoader } from 'react-spinners';
 import socketIOClient from "socket.io-client";
 import { Header } from '../../components/index';
 import WordTable from "./table";
-import { create } from 'apisauce';
-import './word.css'
-
-const api = create({
-  baseURL: '',
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-    Cache: 'no-cache',
-  },
-  timeout: 60000,
-});
-
-function onGetWordData(params = {}) { return api.get('/api/word', params); }
+import './word.css';
+import { onGetWordData } from '../../api/api';
+import { endpoint } from '../../helpers/configs';
 
 class WordScreen extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
-      endpoint: 'localhost:5050',
+      endpoint: endpoint,
       data: {},
       loading: false
     };
@@ -43,7 +30,8 @@ class WordScreen extends Component {
   }
 
   listenSocket() {
-    const socket = socketIOClient(this.state.endpoint);
+    const { endpoint } = this.state;
+    const socket = socketIOClient(endpoint);
     socket.on('change word', (col) => {
       this.onGetWordData()
     })
@@ -59,12 +47,6 @@ class WordScreen extends Component {
     } catch (e) {
       this.setState({ loading: false })
     }
-  }
-
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
   }
 
   render() {
