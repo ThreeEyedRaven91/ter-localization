@@ -1,5 +1,7 @@
-import WordScreen from './Word/index';
+import WordScreen from './Word';
+import Login from './Login';
 
 export {
   WordScreen,
+  Login
 };

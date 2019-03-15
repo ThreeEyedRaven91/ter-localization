@@ -27,10 +27,12 @@ class WordScreen extends Component {
   }
 
   render() {
+    const { location: { state : { isSucessed } }} = this.props
     return (
       <div>
         <Header />
         <Container>
+        {isSucessed &&  
           <Row>
             <Col>
               <Request url="/api/word">
@@ -51,7 +53,7 @@ class WordScreen extends Component {
                 }}
               </Request>
             </Col>
-          </Row>
+          </Row> }
         </Container>
       </div>
     );
