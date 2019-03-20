@@ -38,7 +38,7 @@ const getKeys = (data, group) => {
 };
 
 const updateWord = async ({ group, key, language, word }) => {
-  await fetch('/api/word', {
+  await fetch(`${process.env.REACT_APP_API}/word`, {
     body: JSON.stringify({
       group,
       key,

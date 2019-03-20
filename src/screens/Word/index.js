@@ -33,7 +33,7 @@ class WordScreen extends Component {
         <Container>
           <Row>
             <Col>
-              <Request url="/api/word">
+              <Request url={`${process.env.REACT_APP_API}/word`}>
                 {({data, loading, loaded}) => {
                   if (loading) {
                     return <div>Loading</div>;

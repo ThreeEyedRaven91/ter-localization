@@ -7,7 +7,7 @@ const write = (config, languages) => {
     fs.mkdirSync(`${process.cwd()}/${path}`);
   }
 
-  languagesCode.map((code) => {
+  Object.keys(languagesCode).map((code) => {
     const filePath = `${process.cwd()}/${path}/${code}.json`;
 
     const groups = languages[code];
@@ -31,7 +31,7 @@ const read = (config) => {
   const languagesCode = config.languages;
   const result = {};
 
-  languagesCode.map((code) => {
+  Object.keys(languagesCode).map((code) => {
     const filePath = `${process.cwd()}/${path}/${code}.json`;
     if (fs.existsSync(filePath)) {
       result[code] = JSON.parse(fs.readFileSync(filePath));
