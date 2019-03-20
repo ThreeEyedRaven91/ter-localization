@@ -1,3 +1,4 @@
 #!/usr/bin/env node
 
-require('./server');
+const bootstrap = require('./bootstrap');
+bootstrap(); 
