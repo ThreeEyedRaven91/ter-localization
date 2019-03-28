@@ -1,6 +1,6 @@
 {
   "name": "ter-localization",
-  "version": "0.3.24",
+  "version": "0.4.0",
   "description": "Quick and powerful library for localization for react / react native application",
   "main": "dist/libraries/index.js",
   "scripts": {
