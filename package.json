@@ -10,7 +10,8 @@
     "build-common": "./node_modules/.bin/babel --presets=@babel/env,@babel/react --plugins=@babel/plugin-proposal-class-properties -d dist/common/ common/",
     "build-library": "./node_modules/.bin/babel --presets=@babel/env,@babel/react --plugins=@babel/plugin-proposal-class-properties -d dist/libraries/ src/libraries",
     "build-bin": "./node_modules/.bin/babel --presets=@babel/env,@babel/react --plugins=@babel/plugin-proposal-class-properties -d dist/bin/ src/bin",
-    "build": "yarn build-client && yarn build-server && yarn build-common && yarn build-library && yarn build-bin",
+    "build-helpers": "./node_modules/.bin/babel --presets=@babel/env,@babel/react --plugins=@babel/plugin-proposal-class-properties -d dist/helpers/ src/helpers",
+    "build": "yarn build-client && yarn build-server && yarn build-common && yarn build-library && yarn build-bin && yarn build-helpers",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "yarn build"
   },
@@ -45,6 +46,8 @@
     "bootstrap": "^4.1.3",
     "cors": "^2.8.4",
     "express": "^4.16.4",
+    "googleapis": "27",
+    "open": "^6.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1",
