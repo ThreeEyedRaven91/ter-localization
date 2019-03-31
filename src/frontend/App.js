@@ -3,10 +3,9 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import {
   WelcomeScreen,
-  WordScreen,
   InstallScreen,
 } from './screens';
-import { WrapperConfig } from './components';
+import { WrapperConfig, Layout } from './components';
 import ServiceConfig from './components/WrapperConfig/service';
 
 class App extends Component {
@@ -23,7 +22,7 @@ class App extends Component {
         <Switch>
           {!config && <Route path="/" name="Welcome" component={WelcomeScreen} />}
           {config && !config.storage_path && <Route path="/" name="Config" component={InstallScreen} />}
-          {config && config.storage_path && <Route path="/" name="Word" component={WordScreen} />}
+          {config && config.storage_path && <Route path="/" name="Localization" component={Layout} />}
         </Switch>
       </HashRouter>
     );

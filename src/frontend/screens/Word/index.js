@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
-  Container,
   Row,
   Col,
+  Card,
+  CardHeader,
+  CardBody,
 } from 'reactstrap';
-import Request from 'ter-request-wrapper/src/components/Request/index';
-
-import { Header } from '../../components/index';
 import WordTable from "./table";
+import API from '../../apis';
 
 class WordScreen extends Component {
   constructor(props) {
@@ -15,8 +15,25 @@ class WordScreen extends Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      data: {},
+      loading: 0,
+      loaded: false,
     };
+  }
+
+  async componentDidMount() {
+    this.setState(prevState => ({
+      ...prevState,
+      loading: prevState.loading + 1,
+    }));
+    const result = await API.word.get();
+    const { data } = result;
+    this.setState(prevState => ({
+      ...prevState,
+      loading: prevState.loading - 1,
+      data,
+      loaded: true,
+    }));
   }
 
   toggle() {
@@ -26,32 +43,25 @@ class WordScreen extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <Header />
-        <Container>
-          <Row>
-            <Col>
-              <Request url="/api/word">
-                {({data, loading, loaded}) => {
-                  if (loading) {
-                    return <div>Loading</div>;
-                  }
-                  if (!loaded) {
-                    return <div>Preparing</div>;
-                  }
-                  if (data) {
-                    return (
-                      <WordTable data={data} />
-                    );
-                  }
+    const { loading, loaded, data } = this.state;
 
-                  return <div>Not loaded</div>
-                }}
-              </Request>
-            </Col>
-          </Row>
-        </Container>
+    return (
+      <div className="animated fadeIn">
+        <Row>
+          <Col>
+            <Card>
+              <CardHeader>
+                <i className="fa fa-language"></i> Translation
+              </CardHeader>
+              <CardBody>
+                {loading > 0 && (<div>Loading</div>)}
+                {loading == 0 && !loaded && (<div>Preparing</div>)}
+                {loading == 0 && loaded && data && (<WordTable data={data} />)}
+                {loading == 0 && loaded && !data && (<div>Not loaded</div>)}
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
       </div>
     );
   }
