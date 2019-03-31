@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import Helper from '../common/helpers/index';
+import Helper from '../helpers/index';
 import Sync from './sync';
 
 if (Helper.argv.targets && Helper.argv.targets.length) {

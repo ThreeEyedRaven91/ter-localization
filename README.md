@@ -12,9 +12,10 @@ daily or even hourly basis.
 
 TER-Localization, with new approach method, provide a solution which can speed up everything, include: 
 
-* Collect the translate text from source code
-* Collect the translate text run-time (for non-predefined text, like error return from server)
-* Translate by UI, providable to customer / 3rd-party translate team  
+* **Collect the translate text from source code**
+* **Collect the translate text run-time (even for dynamic text, like error return from server)**
+* **Translate by UI, providable to customer / 3rd-party translate team**
+* **Sync with google spreadsheet**
 
 ## Installation
 ### Install with npm or yarn
@@ -40,7 +41,9 @@ cd localization
   "languages": [
     "en",
     "jp"
-  ]
+  ],
+  "spreadsheet_id": "<spreadsheet_id_only_with_sync_function>",
+  "sheet_id": "<sheet_id_only_with_sync_function>"
 }
 ```
 
@@ -116,6 +119,8 @@ yarn global add ter-localization
 |-----------------------|----------------------------------------------------|
 | [serve](#serve)       | Start server to listen and edit localization       |
 | [scan](#scan-file)    | Scan the folder and add group and key if necessary |
+| [upload](#upload)     | Upload data to spreadsheet                         |
+| [download](#download) | Download data from spreadsheet                     |
 
 ### Serve
 

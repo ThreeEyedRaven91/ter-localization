@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import Helper from '../common/helpers/index';
+import Helper from '../helpers/index';
 import fs from 'fs';
 
 processDirectory(Helper.argv.options.file || './src');
@@ -21,7 +21,7 @@ function processDirectory(path) {
 }
 
 function addWord({ group, key }) {
-  const languages = Helper.io.read(Helper.config);
+  const languages = Helper.io.read(Helper.config());
   Object.keys(languages).map((code) => {
     if (!languages[code][group]) {
       languages[code][group] = {};
@@ -31,7 +31,7 @@ function addWord({ group, key }) {
     }
   });
 
-  Helper.io.write(Helper.config, languages);
+  Helper.io.write(Helper.config(), languages);
 }
 
 function fileList(dir, filelist) {
