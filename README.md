@@ -12,6 +12,7 @@ daily or even hourly basis.
 
 TER-Localization, with new approach method, provide a solution which can speed up everything, include: 
 
+* **Easy start without any configuration**
 * **Collect the translate text from source code**
 * **Collect the translate text run-time (even for dynamic text, like error return from server)**
 * **Translate by UI, providable to customer / 3rd-party translate team**
@@ -24,30 +25,15 @@ TER-Localization, with new approach method, provide a solution which can speed u
 yarn add ter-localization
 ```
 
-### Create localization folder
+### Start to get the UI
 
 ```
-mkdir localization
-cd localization
+./node_modules/.bin/ter-localization serve
 ```
 
-### Create `config.json` with following information
+![UI Editor](/docs/images/02.GettingStarted.png?raw=true "UI Editor")
 
-```
-{
-  "storage_path": "localization",
-  "port": 5050,
-  "host": "localhost",
-  "languages": [
-    "en",
-    "jp"
-  ],
-  "spreadsheet_id": "<spreadsheet_id_only_with_sync_function>",
-  "sheet_id": "<sheet_id_only_with_sync_function>"
-}
-```
-
-With `storage_path` is the path from source's root folder
+Most of information is default. You can just click the button and go.
 
 ### Config inside the code
 
@@ -99,12 +85,6 @@ import { TranslateService } from 'ter-localization';
 TranslationService.t('group')('key');
 ```
 
-Run the service
-
-```
-ter-localization serve
-```
-
 Then run your application. The new translation will be automatically added to all the translation file
 
 ## Global function
@@ -148,16 +128,3 @@ ter-localization scan
 |----------|-------|----------------------------|------------------------------|
 | --file   | -f    | File / folder to search in | `./src`                      |
 | --config | -c    | Path to config file        | `./localization/config.json` |
-
-
-## Roadmap
-
-| Version | Description                                       | Status      |
-|---------|---------------------------------------------------|-------------|
-| 0.1.x   | MVP: Able to load localization from file          | Done        |
-| 0.2.x   | Local API allow to gather string without manually | Done        |
-| 0.3.x   | Allow edit via Interface                          | Done        |
-| 0.4.x   | Allow point API to separated server               | In Progress |
-| 0.5.x   | Allow to add user / password for UI               | To do       |
-| 0.6.x   | Allow to filter, show / hide, etc ...             | To do       |
-| 0.7.x   | Log and analyse the usage data (un-used word)     | To do       |
