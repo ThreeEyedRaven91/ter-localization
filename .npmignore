@@ -1,7 +1,8 @@
-/.ter_localization
-/data
+/.ter
 /node_modules
 /src
 /common
 /public
 /server
+/localization
+/docs
