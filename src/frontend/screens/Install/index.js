@@ -14,6 +14,8 @@ class Register extends Component {
         host: 'localhost',
         port: '5050',
         languages: 'en,fr,jp',
+        spreadsheet_id: '',
+        sheet_id: '',
       },
     };
 
@@ -27,6 +29,8 @@ class Register extends Component {
         host,
         port,
         languages,
+        spreadsheet_id,
+        sheet_id,
       },
     } = this.state;
     const result = await API.config.post({
@@ -34,6 +38,8 @@ class Register extends Component {
       host,
       port,
       languages,
+      spreadsheet_id,
+      sheet_id,
     });
     const { data: { code } } = result;
 
