@@ -18,6 +18,12 @@ TER-Localization, with new approach method, provide a solution which can speed u
 * **Translate by UI, providable to customer / 3rd-party translate team**
 * **Sync with google spreadsheet**
 
+## User manual
+
+|    | Guide                  | Path                                           |
+|----|------------------------|------------------------------------------------|
+| 01 | How to use GDrive Sync | [GDrive Sync](/docs/How_to_use_gdrive_sync.md) |
+
 ## Installation
 ### Install with npm or yarn
 
@@ -99,8 +105,6 @@ yarn global add ter-localization
 |-----------------------|----------------------------------------------------|
 | [serve](#serve)       | Start server to listen and edit localization       |
 | [scan](#scan-file)    | Scan the folder and add group and key if necessary |
-| [upload](#upload)     | Upload data to spreadsheet                         |
-| [download](#download) | Download data from spreadsheet                     |
 
 ### Serve
 
