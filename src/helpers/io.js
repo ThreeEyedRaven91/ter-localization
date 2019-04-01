@@ -42,9 +42,63 @@ const read = (config) => {
   return result;
 };
 
+const toArray = (data) => {
+  const languages = Object.keys(data);
+
+  const groups = languages
+    .reduce((result, language) => result.concat(Object.keys(data[language])), [])
+    .filter(distinct);
+
+  const headers = ['Group', 'Keyword', ...languages];
+  const values = groups.reduce((group_result, group) => {
+    const keys = languages
+      .reduce((result, language) => result.concat(Object.keys(data[language][group])), [])
+      .filter(distinct);
+
+    const rows = keys.map(key => {
+      const words = languages.map(language => data[language][group][key]);
+      return [group, key, ...words];
+    });
+
+    return group_result.concat(rows);
+  }, [headers]);
+
+  return values;
+};
+
+const fromArray = (data, base = {}) => {
+  const [ header, ...lines ] = data;
+  const [ groupHeader, keywordHeader, ...languageKeys ] = header;
+
+  const result = base;
+
+  for (let i = 0; i < lines.length; i ++) {
+    const [ group, key, ...words ] = lines[i];
+    if (group.length == 0 || key.length == 0) {
+      break;
+    }
+
+    for (let j = 0; j < languageKeys.length; j ++) {
+      const languageKey = languageKeys[j];
+      if (!result[languageKey]) {
+        result[languageKey] = {};
+      }
+
+      if (!result[languageKey][group]) {
+        result[languageKey][group] = {};
+      }
+
+      result[languageKey][group][key] = words[j];
+    }
+  }
+  return result;
+};
+
 const IOHelper = {
   write,
   read,
+  toArray,
+  fromArray,
 };
 
 module.exports = IOHelper;
