@@ -81,8 +81,4 @@ router.post('/download', async (req, res) => {
   }
 });
 
-const distinct = (value, index, self) => {
-  return self.indexOf(value) === index;
-};
-
 export default router;

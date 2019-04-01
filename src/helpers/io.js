@@ -94,6 +94,10 @@ const fromArray = (data, base = {}) => {
   return result;
 };
 
+const distinct = (value, index, self) => {
+  return self.indexOf(value) === index;
+};
+
 const IOHelper = {
   write,
   read,
