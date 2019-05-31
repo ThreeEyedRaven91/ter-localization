@@ -64,7 +64,6 @@ export default TranslateService;
 In side your component
 
 ```
-
 import './localization/index'; // one time import in very top class is okie. no need to import this in every file
 import {translateWrapper} from 'ter-localization';
 
@@ -78,7 +77,23 @@ render() {
   );
 }
 
-export default translateWrapper('main')(App);
+export default translateWrapper('your_group')(App);
+```
+
+Or using with LocalizationComponent Extends
+
+```
+import {LocalizationComponent} from 'ter-localization';
+
+class AddModal extends LocalizationComponent {
+  translationGroup = 'your_group';
+  
+  componentDidMount() {
+    super.componentDidMount(); // remember this line, REMEMBER!!!
+    
+    // Other code in componentDidMount
+  }
+}
 ```
 
 Or you can use standalone code
