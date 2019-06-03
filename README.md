@@ -29,12 +29,13 @@ TER-Localization, with new approach method, provide a solution which can speed u
 
 ```
 yarn add ter-localization
+yarn global add ter-localization-cli
 ```
 
 ### Start to get the UI
 
 ```
-./node_modules/.bin/ter-localization serve
+ter-localization-cli serve
 ```
 
 ![UI Editor](/docs/images/02.GettingStarted.png?raw=true "UI Editor")
@@ -119,7 +120,6 @@ yarn global add ter-localization
 | Command               | Description                                        |
 |-----------------------|----------------------------------------------------|
 | [serve](#serve)       | Start server to listen and edit localization       |
-| [scan](#scan-file)    | Scan the folder and add group and key if necessary |
 
 ### Serve
 
@@ -131,19 +131,4 @@ The UI will be provided with information in the config file. Default will be `ht
 
 | Params   | Short | Description         | Default                      |
 |----------|-------|---------------------|------------------------------|
-| --config | -c    | Path to config file | `./localization/config.json` |
-
-### Scan file
-
-Library will scan all the file within the directory to find the template `TranslateService.t('group')('key')` and automatically add group and key to localization file.
-
-```
-ter-localization scan
-```
-
-#### Params
-
-| Params   | Short | Description                | Default                      |
-|----------|-------|----------------------------|------------------------------|
-| --file   | -f    | File / folder to search in | `./src`                      |
-| --config | -c    | Path to config file        | `./localization/config.json` |
+| --config | -c    | Path to config file | `./src/localization/config.json` |
